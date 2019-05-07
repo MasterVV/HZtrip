@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+ 
+    <link rel="stylesheet" href="./css/common.css"/>
+    <link rel="stylesheet" href="./css/animate.css"/>
+    
+    <title></title>
+   <style>
+      
+        .bg-taster{
+            position: relative;
+            background: url("./taset-img/timg111.gif");
+            background-size: 100% 100%;
+            height: 600px;
+        }
+        section div:nth-child(1) div:nth-child(1){
+            position: absolute;
+            top: 50%;
+            left: 37%;
+            text-align: center;
+            font-family:"楷体" ;
+        }
+        section div:nth-child(1) div:nth-child(2){
+            position: absolute;
+            top: 90%;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background:rgba(0,129,200,0.6);
+            padding-left: 100px;
+        }
+
+        section .content{
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+        section .content:nth-child(2n+1){
+            flex-direction:row-reverse;
+        }
+        section .content div{   
+            width: 520px;
+            height: 290px;
+        }
+        section .content h3{
+            color: #0085ce;
+        }   
+        section .content div ul li{
+            float: left;
+            text-align: center;
+            width:130px; 
+        }
+        section .content div ul li a{
+            color:black;
+        }
+        section .content div ul li:hover{
+            animation:jello 1s;
+        }
+        section .content div ul li a:hover{color:#0085ce;}
+        /* 图片效果 */
+        section .content img{
+            animation: zoomIn 2s;
+        }
+
+
+        /* 图2  设置弹性布局 */
+        section .second img{
+            z-index: -1;
+        }
+        section .second{
+            position: relative;
+            display: flex;
+            flex-wrap:wrap;
+            width: 80%;
+            height: 600px;
+            left: 15%;
+        }
+        section .second div:first-child{
+            width: 60%;
+            height: 290px;
+            
+        }
+        section .second div:nth-child(2){
+            width: 30%;
+            height: 290px;
+        }
+        section .second div:nth-child(3){
+            width: 40%;
+            height: 290px;
+        }
+        section .second div:nth-child(4){
+            width: 50%;
+            height: 290px;
+        }
+        section .second img{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: -1; 
+        }
+       
+        /* 把透明框往上移动 */
+        section .second .sec-pos{
+            margin-top: -60px;
+            background:rgba(0,0,0,0.5);
+            position: relative;
+            height: 290px !important;   
+            
+        }
+        
+        /* 透明框大小 */
+        section .second div .sec-pos{
+            width: 100% !important;
+        }
+        section .second .sec-pos ul{
+            padding: 15px;
+            text-align: left;
+            
+        }
+        section .second li,section .second li a{
+            color: wheat;
+        }
+        section .second li a:hover{
+            color:aquamarine;
+        }
+        section .second .sec-pos  .sec-li{
+            margin-top: 13px;
+            border-top: 2px solid wheat;
+            border-bottom: 2px solid wheat;
+            padding:16px 0 16px 0;
+        }
+        /*  透明框中ul 设置 */
+        .sec-ul{
+            display: flex;
+            flex-wrap:wrap; 
+        }
+        .sec-ul li{
+            width: 50%;
+        } 
+
+   </style>
+
+</head>
+<body>
+  <header></header>
+
+  <section>
+    <!-- 首页背景+文字-->
+    <div class="bg-taster">
+            <div>
+                <p class="h4 text-white">杭州享“人间天堂”美誉，西湖</p>     
+                <p class="h4 text-white pl-5">朦胧烟雨、龙井茶香</p>
+                <p class="h4 text-white pl-4">将温婉的江南展现在你面前</p>
+            </div>
+            <!-- 导航条-->
+            <div class="pt-4">
+                <a href="#" class="text-white h5">首页</a>
+                <a href="#" class="text-white h5">>体验杭州</a>
+            </div>
+    </div>
+
+
+    <!-- 介绍-->
+    <!-- 1 -->
+    <div class="content">
+        <table></table>
+        <img  src="./taset-img/exploreMainPic_04.jpg" alt="">
+        <div class="ml-5">
+            <h3 class="text-center">经典景区</h3>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每个人的江南词典里都有个叫杭州的地方，在杭州的游记里每个人都会贴上西湖、西溪、运河的标签，此番探春之旅，你会错过这些地儿吗？如果说西湖、西溪、运河集结了杭州风光之大美，那么那些隐匿在城市里且带着些市民气的地带则交织出了日常生活之温馨美，如果时间充裕，不妨走到这些小众的地儿去感...
+                <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+                <ul class="list-unstyled">
+                    <li><a href="javascript:;">西湖风景区</a></li>
+                    <li><a href="javascript:;">西溪国家湿地公园</a></li>
+                    <li><a href="javascript:;">京杭大运河杭</a></li>
+                    <li><a href="javascript:;">千岛湖</a></li>
+                    <li><a href="javascript:;">苏堤春晓</a></li>
+                    <li><a href="javascript:;">曲院风荷</a></li>
+                    <li><a href="javascript:;">断桥残雪</a></li>
+                    <li><a href="javascript:;">花港观鱼</a></li>
+                    <li><a href="javascript:;">柳浪闻莺</a></li>
+                    <li><a href="javascript:;">三潭印月</a></li>
+                    <li><a href="javascript:;">双峰插云</a></li>
+                    <li><a href="javascript:;">南屏晚钟</a></li>
+                    <li><a href="javascript:;">雷峰夕照</a></li>
+                    <li><a href="javascript:;">平湖秋月</a></li>
+                </ul>
+            </div> 
+        </div>
+    </div>
+
+
+     <!-- 2图片推荐 -->
+    <div class="second mb-5" >
+       <div style="Overflow:hidden" class="mr-2">
+            <table></table>
+            <img src="./realize-img/pic_002.jpg" alt="">
+            <div class="sec-pos">
+                <ul>
+                        <li>美食</li>
+                        <li class="sec-li">杭菜自南宋时期便成为中国十大菜系之一，是浙菜的主体，众多美味佳肴都伴随着传说故事流传至今。有楼外楼、知味观、外婆家、张生记、皇饭儿王润兴、花中城大酒店、山外山菜馆等餐饮名店</li>
+                        <li>
+                            <ul class="sec-ul">
+                                <li ><a href="javascript:;">楼外楼</a></li>
+                                <li ><a href="javascript:;">张生记酒店(杭州总店)</a></li>
+                                <li ><a href="javascript:;">知味观仁和店</a></li>
+                                <li ><a href="javascript:;">乾隆舫</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:;">更多></a></li>
+                </ul>
+            </div>
+       </div>
+
+       <div style="Overflow:hidden">
+           <img src="./realize-img/pic_003.jpg" alt="">
+           <div class="sec-pos">
+            <ul>
+                <li>住宿</li>
+                <li class="sec-li">门是舒适温馨的憩所，出门则可饱览无限风景。杭州有奢华高贵的高星级住处，有散布在乡野间的农家小院，有实惠方便...</li>
+                <li>
+                    <ul class="sec-ul">
+                        <li ><a href="javascript:;">酒店数据</a></li>
+                        <li ><a href="javascript:;">西溪喜来登酒店</a></li>
+                        <li ><a href="javascript:;">客户评价</a></li>
+                        <li ><a href="javascript:;">住宿地址</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">更多></a></li>
+        </ul>
+           </div>
+       
+        </div>
+
+       <div style="Overflow:hidden" class="mr-2">
+           <img src="./realize-img/pic_004.jpg" alt="">
+           <div class="sec-pos">
+            <ul>
+                <li>娱乐</li>
+                <li class="sec-li">华灯初现，杭城的妩媚风情，从西湖的月影中，运河的微波里，一次又一次被打捞而起。月色点燃了夜里的繁华，尽情地体验城市流光溢彩的夜间情调。组个团宅在杭州名小...</li>
+                <li>
+                    <ul class="sec-ul">
+                        <li ><a href="javascript:;">西湖之夜</a></li>
+                        <li ><a href="javascript:;">印象西湖</a></li>
+                        <li ><a href="javascript:;">宋城千古情</a></li>
+                        <li ><a href="javascript:;">青藤茶馆</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">更多></a></li>
+        </ul>
+           </div>
+       </div>
+
+       <div style="Overflow:hidden">
+           <img src="./realize-img/pic_005.jpg" alt="">
+           <div class="sec-pos">
+            <ul>
+                <li>购物</li>
+                <li class="sec-li">如果你问杭州的购物哪里好？那我会告诉你，杭州的购物很有特色，著名的不是那些灯光璀璨，一层层不同格局的百货商场和大型购物中心，而是一条条风格独特的特色商业街。</li>
+                <li>
+                    <ul class="sec-ul">
+                        <li ><a href="javascript:;">边福帽(河坊街)</a></li>
+                        <li ><a href="javascript:;">胡庆余堂</a></li>
+                        <li ><a href="javascript:;">李宝赢堂</a></li>
+                        <li ><a href="javascript:;">西湖龙井茶</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">更多></a></li>
+        </ul>
+           </div>
+       </div>
+    </div>  
+  </section>
+
+  <footer></footer>
+
+     <script src="./js/jquery.min.js"></script>
+     <script src="./js/popper.min.js"></script>
+     <script src="./js/bootstrap.min.js"></script>
+     <script src="./js/header.js"></script>
+     <script src="./js/footer.js"></script>
+
+    <script>
+    
+        $(function(){
+            //鼠标移入文本框向上展示
+            $(".second>div").on("mouseenter",".sec-pos",function(){
+                $(this).animate({marginTop:-290},800);
+            })
+            //鼠标移出文本框向下隐藏
+            $(".second>div").on("mouseleave",".sec-pos",function(){
+                $(this).animate({marginTop:-60},1000);
+            })
+        })        
+    </script> 
+</body>
+</html>

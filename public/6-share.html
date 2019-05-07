@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+ 
+    <link rel="stylesheet" href="./css/common.css"/>
+    <link rel="stylesheet" href="./css/animate.css"/>
+    <link rel="stylesheet" href="./css/share.css">
+    
+    <title></title>
+    <style>
+        .bg-taster{
+            position: relative;
+            background: url("./share/pic_042.jpg");
+            background-size: 100% 100%;
+            height: 600px;
+        }
+        section div:nth-child(1) div{
+            background: transparent;
+            position: absolute;
+            top: 66%;
+            left: 6%;
+            font-family:"楷体" ;
+        }
+        section div:nth-child(1) div:nth-child(2){
+            position: absolute;
+            top: 90%;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background:rgba(0,129,200,0.6);
+            padding-left: 100px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+  <header></header>
+
+ <!-- 主体 -->
+    <section id="app">
+        <!-- 首页背景+文字-->
+        <div class="bg-taster">
+            <div>
+                <p class="h1 text-white">咨询分享</p>
+                <p class="h2 text-white">提供各种杭州交流资讯</p>
+                <p class="h3 text-white">与杭州旅行者分享各自见闻</p>
+            </div>
+            
+            <!-- 导航条-->
+            <div class="pt-4">
+                <a href="#" class="text-white h5">首页</a>
+                <a href="#" class="text-white h5">>咨询分享</a>
+            </div>
+        </div>
+
+        <!-- 手风琴动图 -->
+        <div class="accordion">
+                <div class="box">
+                    <img src="share/1000x800.jpg">
+                    <span>西湖</span>
+                </div>
+                <div class="box">
+                    <img src="share/1000x802.jpg">
+                    <span>西溪湿地</span>
+                </div>
+                <div class="box">
+                    <img src="share/1000x804.jpg">
+                    <span>宝石山</span>
+                </div>
+                <div class="box">
+                    <img src="share/1000x806.jpg">
+                    <span>太子湾公园</span>
+                </div>
+        </div>
+
+        <!--留言分享  -->
+        <div class="mes">
+            <h1>留言板块</h1>
+            <textarea type="text" placeholder="请输入您的宝贵评论" v-model="tduce"></textarea>
+            <br>
+            <button class="btn btn-info" @click="add">提交</button>
+        </div>
+        
+
+        <!-- 留言打印 -->
+        <div class="info"  v-for="(elem,i) of list">
+                <hr>
+                    <span class="h5 iconfont icon-yonghu">:{{elem.tname}}</span>
+                    <div class="h5  iconfont icon-jingdian">:{{elem.tduce}}</div>
+                    <span class="h5">{{elem.time}}</span>
+        </div>
+        
+
+
+    </section>
+  <footer></footer>
+
+     <script src="./js/jquery.min.js"></script>
+     <script src="./js/popper.min.js"></script>
+     <script src="./js/bootstrap.min.js"></script>
+     <script src="./js/vue.js"></script>
+     <script src="./js/axios.min.js"></script>
+     <script src="./js/header.js"></script>
+     <script src="./js/footer.js"></script>
+
+    
+    <script>
+          // vue axios  留言提交
+        Vue.prototype.axios=axios;
+        var key=localStorage.getItem("key");
+
+        new Vue({
+            el:"#app",
+            data:{
+                tname:this.key,
+                tduce:"",
+                time:new Date().toLocaleString(),
+                list:[]
+        },
+       mounted() {
+           this.add();
+       },
+              methods: { 
+                add(){
+                    console.log(key);
+                    if(key!=null){
+                    this.axios.get("http://127.0.0.1:8080/register/comment",{
+                        params:{
+                            tname:this.tname,
+                            tduce:this.tduce,
+                            time:this.time
+                        }
+                    }).then((result)=>{
+                        // var {data,com}=obj;
+                        //回调函数 this 内外通用
+                        console.log(result.data);
+                        this.list=result.data;
+                    });  
+                }
+        } 
+                       
+             },
+        })    
+        
+
+             
+        
+    </script>
+
+</body>
+</html>

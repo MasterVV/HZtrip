@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/popper.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./css/common.css"/>
+	<link rel="stylesheet" href="./css/header.css"/>
+	<title></title>
+
+	<style>
+			#container{
+				width:100%;
+				height:650px;
+				background-repeat: repeat-x;
+				background-position: center;
+				background-image: url('img/bg.jpg');
+				color: white;
+			}
+			#register-list{
+				padding: 15px;
+				width: 280px;
+				height: 300px;
+				background-color: rgba(0, 0,0, 0.4);
+				margin-left: 37%;
+				margin-top:10%;
+				border-radius: 5px;
+			}
+			#register-list a{
+				color: #fff;
+				text-decoration: none;
+				margin-left: 24px;
+				border: 0;outline: 0;
+				box-sizing: border-box;
+			}
+			#upwd,#uname{
+				width: 100%;
+				height: 35px;
+				margin-top: 20px;
+				margin-bottom: 20px;
+				padding-left: 10px;
+				box-sizing: border-box;
+				background-repeat: no-repeat;
+				background-position: right,center;
+			}
+			#uname{
+				background-image: url('img/yhm.png');	
+			}
+			#upwd{
+				background-image: url('img/mm.png');
+			}
+			button{
+				width: 100%;
+				height: 40px;
+				border: 0px;
+				border-radius:3%;
+				font-size: 20px;
+				margin-top: 5%;
+				background:linear-gradient(to top, #27b0f6 0%, #0aa1ed 100%);
+			}
+			hr{
+				margin-top: 20px;
+			}
+
+		</style>
+	</head>
+		<body>
+		<!-- 网页头-->
+		<header class="row bg-color m-0" id="header">
+			<div class="col-lg-2">
+				<img class="bg-transparent" src="./img/logo2.png" alt=""/>
+			</div>
+			<div class="col-lg-10 mt-3">
+				<!-- 导航栏-->
+				<ul class="nav navbar">
+					<li class="nav-item dropdown"><a class="nav-link dropbtn" href="#">首页</a>
+						<div class="dropdown-content">
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+						</div>
+					</li>
+
+					<li class="nav-item dropdown"><a class="nav-link dropbtn" href="#">品味杭州</a>
+						<div class="dropdown-content">
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+						</div>
+					</li>
+
+					<li class="nav-item dropdown"><a class="nav-link dropbtn" href="#">体验杭州</a>
+						<div class="dropdown-content">
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+						</div>
+					</li>
+
+					<li class="nav-item dropdown"><a class="nav-link dropbtn" href="#">旅行攻略</a>
+						<div class="dropdown-content">
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+						</div>
+					</li>
+
+					<li class="nav-item dropdown"><a class="nav-link dropbtn" href="#">活动盛事</a>
+						<div class="dropdown-content">
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+						</div>
+					</li>
+
+					<li class="nav-item dropdown"><a class="nav-link dropbtn" href="#">咨询分享</a>
+						<div class="dropdown-content">
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+							<a href="#">菜鸟教程</a>
+						</div>
+					</li>
+
+					<li class="nav-item bg-color">
+						<a href="1-login.html" target="_blank">登录</a>
+					</li>
+					<li class="nav-item bg-color">
+						<a href="2-register.html" target="_blank">注册</a>
+					</li>
+				</ul>
+			</div>
+		</header>
+
+		<!-- body 主体-->
+			<div id="container">
+				<!-- 避免外边距溢出 -->
+				<table></table>  
+				<div id="register-list" >
+					<table class="ml-4">
+						<tr class="text-center">
+							<td><h4>用户登录</h4></td>
+						</tr>
+						<tr>
+							<td colspan="2"><hr></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="text" id="uname" class="btn" placeholder="请输入您的用户名">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="password" id="upwd" class="btn" placeholder="请输入您的密码">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+									<button onclick="login()">登录</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+<!--引用尾部-->
+		<iframe class="footer-height" src="footer.html" frameborder="0"></iframe>
+							<!-- ajax 交互  -->
+							<script>
+									//登录验证
+									function login(){
+										//创建
+										var xhr=new XMLHttpRequest(); 
+										//监听
+										xhr.onreadystatechange=function(){
+											if(xhr.readyState==4&&xhr.status==200){
+												var result=xhr.responseText;	
+												alert(result);
+											}
+										}
+										//打开
+										xhr.open("post",'/register/login',true);
+										//post 请求 重设置请求头
+										xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+										var formdata="uname="+uname.value+"&upwd="+upwd.value;
+										console.log(formdata);
+										//发送请求
+										xhr.send(formdata);
+									}
+									//注册用户
+						 </script>
+		</body>
+
+	
+</html>

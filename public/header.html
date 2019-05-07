@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/common.css"/>
+    <link rel="stylesheet" href="./css/header.css"/>
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <title></title>
+    <style>
+    .headFunction ul li a{font: 13px 楷体;}
+    .vali_info{
+		display:none;
+	}
+    </style>
+
+</head>
+<body>
+    
+        <div class="headFunction">
+                  
+                <ul class="breadcrumb  p-0 ">
+                    <iframe name="weather_inc"  src="http://i.tianqi.com/index.php?c=code&id=99" width="150" height="40" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+                    <li class="breadcrumb-item"><a href="#">民宿网</a></li>
+                    <li class="breadcrumb-item"><a href="#">手机网</a></li>
+                </ul>
+        </div>
+            <!-- 网页头-->
+        <header class="row bg-color m-0 " id="header">
+
+                <div class="col-lg-3">
+                    <img class="bg-transparent logo-scale" src="./img/logo2.png" alt=""/>
+                </div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 mt-3 ">
+                    <!-- 导航栏-->
+                    <ul class="nav navbar ">
+                        <li class="nav-item dropdown"><a class="nav-link dropbtn" href="0-index.html">首页</a>
+                            <div class="dropdown-content">
+                                <a href="#">城市发展</a>
+                                <a href="#">民生发展</a>
+                                <a href="#">企业发展</a>
+                            </div>
+                        </li>
+        
+                        <li class="nav-item dropdown"><a class="nav-link dropbtn" href="3-tasterHZ.html" target="_blank">品味杭州</a>
+                            <div class="dropdown-content">
+                                    <a href="#">城市介绍</a>
+                                    <a href="#">历史沿革</a>
+                                    <a href="#">中国古都</a>
+                            </div>
+                        </li>
+        
+                        <li class="nav-item dropdown"><a class="nav-link dropbtn" href="4-realize.html">体验杭州</a>
+                            <div class="dropdown-content">
+                                <a href="#">美食推荐</a>
+                                <a href="#">本地名宿</a>
+                                <a href="#">西湖景区</a>
+                            </div>
+                        </li>
+        
+                        <li class="nav-item dropdown"><a class="nav-link dropbtn" href="7-travel.html">旅行攻略</a>
+                            <div class="dropdown-content">
+                                <a href="#">专题攻略</a>
+                                <a href="#">大话杭州</a>
+                                <a href="#">...</a>
+                            </div>
+                        </li>
+        
+                        <li class="nav-item dropdown"><a class="nav-link dropbtn" href="javascript:;">活动盛事</a>
+                            <div class="dropdown-content">
+                                <a href="#">当月热点</a>
+                                <a href="#">热点回顾</a>
+                                <a href="#">活动日历</a>
+                            </div>
+                        </li>
+        
+                        <li class="nav-item dropdown"><a class="nav-link dropbtn" href="6-share.html">咨询分享</a>
+                            <div class="dropdown-content">
+                                <a href="#">互动留言</a>
+                                <a href="#">景点推荐</a>
+                                <a href="#">...</a>
+                            </div>
+                        </li>
+        
+                        <li class="nav-item">
+                            <a href="2-register.html" target="_blank" class="user-login">登录</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="javascript:;" target="_blank" class="user-name iconfont icon-yonghu vali_info"></a>
+                        </li>
+
+                        <li class="nav-item">
+                             <a href="javascript:;" target="_blank" class="user-dec vali_info">注销</a>
+                        </li>
+                    </ul>
+                </div>
+        </header>
+
+<script>
+    $(function(){
+       let key=localStorage.getItem("key");
+       //console.log(key);
+       if(key){
+           $(".user-login").addClass("vali_info");
+           $(".user-name").text("  "+key).removeClass("vali_info");
+           $(".user-dec").removeClass("vali_info").on("click",function(){
+               localStorage.removeItem("key");
+                location.reload();//注销后刷新网页
+           });
+       }
+       
+    })
+</script>
+</body>
+</html>

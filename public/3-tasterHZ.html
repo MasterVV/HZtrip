@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <title></title>
+    <style>
+        .bg-taster{
+            position: relative;
+            background: url("./taset-img/pic_006.jpg");
+            background-size: 100% 100%;
+            height: 600px;
+        }
+        section div:nth-child(1) div{
+            background: transparent;
+            position: absolute;
+            top: 66%;
+            left: 6%;
+            font-family:"楷体" ;
+        }
+        section div:nth-child(1) div:nth-child(2){
+            position: absolute;
+            top: 90%;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background:rgba(0,129,200,0.6);
+            padding-left: 100px;
+        }
+
+        /* ------- */
+        .content{
+            
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+        .content:nth-child(2n+1){
+            flex-flow: row-reverse;
+        }
+        .content h3{
+            color: #0085ce;
+        }   
+        .content div{   
+            width: 480px;
+            height: 290px;
+        }
+        .content div ul li{
+            float: left;
+            text-align: center;
+            width:120px;
+            
+        }
+        .content div ul li a{
+            color:black;
+        }
+        .content div ul li:hover{
+            animation:jello 1s;            
+        }
+        
+        .content div ul li a:hover{color:#0085ce;}
+
+        /* 图片效果 */
+        .content img{
+            animation: zoomIn 2s;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+
+<!-- 头部 -->
+<header></header>
+
+<!--主体-->
+<section>
+    <!-- 首页背景+文字-->
+    <div class="bg-taster">
+        <div>
+            <p class="h1 text-white">品味杭州</p>
+            <p class="h2 text-white">前往杭州旅游之前</p>
+            <p class="h3 text-white">我们将为你提供尽量周全的实用资讯</p>
+        </div>
+        
+        <!-- 导航条-->
+        <div class="pt-4">
+            <a href="#" class="text-white h5">首页</a>
+            <a href="#" class="text-white h5">>品味杭州</a>
+        </div>
+    </div>
+ 
+    <!-- 介绍-->
+    <div class="content" v-for="(elem,i) of list">
+        <table></table>
+        <img  :src="elem.turl" alt="" class="ml-5">
+        <div class="ml-5" >
+            <h3 class="text-center">{{elem.tname}}</h3>
+            <div><p>{{elem.title}}</p>
+                {{elem.tduce}}
+                <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+                <ul class="list-unstyled" v-html="elem.tother">
+                   
+                </ul>
+            </div> 
+        </div>
+    </div>
+
+
+</section>
+
+<footer></footer>
+
+<!--引用尾部-->
+<!-- 引用头部 -->
+<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="./css/common.css"/>
+<link rel="stylesheet" href="./css/animate.css"/>
+<script src="./js/popper.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/jquery-1.11.3.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/vue.js"></script>
+<script src="./js/axios.min.js"></script>
+<script src="./js/taster.js"></script>
+<script src="./js/header.js"></script>
+<script src="./js/footer.js"></script>
+</body>
+</html>

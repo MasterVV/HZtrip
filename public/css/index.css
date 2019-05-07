@@ -1,0 +1,27 @@
+
+#footer{
+    width: 1100px;
+    height: 310px;
+    opacity: 0.8;
+    background: black;
+}
+
+
+#footer ul{height: 160px;}
+
+#footer div ul a{
+    text-decoration: none;
+    color: white;
+}
+#footer div ul a:hover{
+    animation:flash 1s;
+}
+
+/*��д���м����*/
+#footer .breadcrumb{
+    height: 100px;
+}
+#footer .breadcrumb-item + .breadcrumb-item::before {
+    content: "|";
+}
+

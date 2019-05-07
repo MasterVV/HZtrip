@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="./css/bootstrap.css">
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/popper.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./css/common.css"/>
+	<link rel="stylesheet" href="./css/footer.css">
+	<link rel="stylesheet" href="./js/jquery-1.11.3.js">
+	<title></title>
+	<style>
+	.container{
+		position: relative;
+		width:100%;
+		height: 476px;
+		background: url("./img/2.png") repeat-x;
+		margin-top: 85px;
+	}	
+	.container .reg{
+		position: absolute;
+		top: 1%;
+		left: 51%;
+		height: 74%;
+		width: 29%;
+	}
+		.bc-reg{
+			margin-top:10px;
+			border-radius: 30px;
+			background-color: rgba(50,0,0,0.1);
+		}
+		.bc-reg table:nth-child(3)td{
+			width:300px;
+		}
+		table{
+			width: 380px;
+			height: 400px;
+		}
+		/*注册验证样式*/
+	/*验证成功*/
+	.vali_success{
+		background-image:url("./logo/ok.png");
+		/*background: color url() repeat attachment position;*/
+		background-repeat: no-repeat;
+		background-position: 10px center;
+	}
+	/*验证失败*/
+	.vali_fail{
+		background-image:url("./logo/err.png");
+		background-repeat: no-repeat;
+		background-position: 10px center;
+	}
+	/*文本隐藏*/
+	.vali_info{
+		display:none;
+	}
+	</style>
+</head>
+<body>
+
+<!-- 网页头-->
+<header></header>
+ 
+
+<!--网页主体-->
+<div class="container bg-light p-0">
+	<!-- 主体 用户注册表-->
+		<div class="reg">
+			<div class="bc-reg">
+					<div class="text-center h4 pt-4">
+						<a class="login mr-5" href="#">登录</a>
+						<a class="register ml-5" href="#">注册</a>
+					</div>
+
+				<table class="ml-3 vali_info">
+					<tr >
+						<td><input class="btn ml-3"   type="text" id="uname" placeholder="用户名"></td>
+						<td class="vali_info">1-6位字母数字</td>
+					</tr>
+					<tr>
+						<td><input class="btn ml-3" type="password" id="upwd" placeholder="密码"></td>
+						<td class="vali_info">6位数字</td>
+					</tr>
+					<tr>
+						<td><input class="btn ml-3" type="password" id="upwd_check" placeholder="核对密码" onblur="checkUpwd()">
+						</td>
+						<td class="pl-2"></td>
+					</tr>
+					<tr>
+						<td><input class="btn ml-3" type="text" id="phone" placeholder="手机号码">
+						<td class="pl-2 vali_info"></td>
+						</td>
+					</tr>
+					<tr>
+						<td><input class="btn ml-3" type="text" id="email" placeholder="邮箱"></td>
+						<td class="pl-2 vali_info"></td>
+					</tr>
+					<tr>
+							<td style="width: 222.67px" class="text-center">
+								<input type="radio" name="gen" id="gender" value="1">
+								<label for="man">男</label>
+								<input type="radio" name="gen" id="gender" value="0">
+								<label for="woman">女</label>
+							</td>
+						<!-- <td><input type="text" id="gender" placeholder="性别"></td> -->
+					</tr>
+					<tr>
+						<td class="text-center">
+							<button class="btn btn-info ml-2" onclick="register()">注册</button>
+							<button class="btn btn-danger ml-4">重置</button>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+
+				<table>
+
+				<tr class="text-center">
+					<td colspan="2">
+						<input type="text" id="username" class="btn" placeholder="请输入您的用户名">
+					</td>
+				</tr>
+				<tr class="text-center">
+					<td colspan="2">
+						<input type="password" id="userpwd" class="btn" placeholder="请输入您的密码">
+					</td>
+				</tr>
+
+				<tr class="text-center">
+					<td colspan="2">
+						<button class="btn btn-info w-25" id="login"  >登录</button>
+						<button class="btn btn-danger w-25">重置</button>
+					</td>
+				</tr>
+					<tr></tr>
+					<tr></tr>
+			</table>
+			</div>
+		</div>
+</div>
+<!--引用尾部-->
+<footer></footer>
+
+
+<script>
+
+
+	//登录注册页面切换
+//------------------------
+(function(){
+		var header=document.getElementsByClassName("reg")[0].children[0].children[0];
+		var log=header.children[0];
+		var reg=header.children[1];
+		reg.onfocus=log.onfocus=function(){
+			var div=this.parentElement.parentElement;
+			if(this.innerHTML=="注册"){
+				div.children[1].className="";
+				div.children[2].className="vali_info";
+			}
+			else{
+				div.children[1].className="vali_info";
+				div.children[2].className="";
+			}
+		}
+	})();
+//------------------------
+
+// 登录验证
+(()=>{
+	// name  验证
+	// 1 查找触发事件元素   2 绑定事件  3 查找修改元素  4 修改元素
+		var txtName=document.getElementById("uname");
+		var txtPwd=document.getElementById("upwd");
+		var txtPwdc=document.getElementById("upwd_check");
+		var txtphone=document.getElementById("phone");
+		var	txtemail=document.getElementById("email");
+
+	//获得焦点
+	txtName.onfocus=txtPwd.onfocus=function(){
+		var input=this;
+		var td=input.parentNode.nextElementSibling;
+		td.className="";
+	}
+	//失去焦点
+	txtName.onblur=function(){
+		var reg=/^\w{1,6}$/;
+		vali.call(this,reg);
+	}
+
+	//pwd  失去焦点
+	txtPwd.onblur=function(){
+		var reg=/^\d{6}/;
+		vali.call(this,reg);
+	}
+	//封装代码段
+	function vali(reg){
+		var input=this;
+		//要修改的div
+		var td=input.parentNode.nextElementSibling;
+			td.className="";
+		//用正则验证当前文本框内容通过
+		if(reg.test(input.value)==true){
+			td.className="vali_success";
+			td.innerHTML="";
+		}else{
+			td.className="vali_fail";
+			td.innerHTML="";
+		}
+	}
+
+	//核对密码
+	txtPwdc.onblur=function(){
+		var upwd = document.getElementById("upwd").value;
+		var upwd_check = document.getElementById("upwd_check").value;
+		var td=this.parentNode.nextElementSibling;
+		if (upwd == upwd_check) {
+			td.className="vali_success";
+		} else {
+			td.className="vali_fail";
+		}
+	}
+
+	//手机号码验证
+	txtphone.onblur=function(){
+		var phone=document.getElementById("phone").value;
+		var phoneReg=/^((\+86|0086)\s+)?1[3-8]\d{9}$/;
+		vailIf.call(this,phone,phoneReg);
+	}
+
+	//邮箱验证  email
+	 txtemail.onblur=function(){
+		var email=document.getElementById("email").value;
+		var emailReg=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+		vailIf.call(this,email,emailReg);
+	}
+
+//判断 手机号 邮箱 是否符合条件
+function vailIf(value,reg){
+		var td=this.parentNode.nextElementSibling;
+		if(reg.test(value)==true){
+			td.className="vali_success";
+		}else{
+			td.className="vali_fail";
+		}
+}
+})()
+	// ajax 登录
+
+
+	var login=document.getElementById("login");
+	login.onclick=function(){
+		//创建
+		var xhr=new XMLHttpRequest();
+		//监听
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				var result=xhr.responseText;
+			
+				if(result=="success"){
+					//console.log(formdata.split("&")[0].split("=")[1]); 用户名
+					 localStorage.setItem("key",formdata.split("&")[0].split("=")[1]);
+					 location.href="0-index.html";
+				}else{
+					alert("注册失败");
+				}
+			}
+		}
+		//打开
+		xhr.open("post",'/register/login',true);
+		//post 请求 重设置请求头
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		var formdata="username="+username.value+"&userpwd="+userpwd.value;
+		//console.log(formdata);
+		//发送请求
+		xhr.send(formdata);
+};
+
+
+	// ajax 注册用户
+	function register(){
+		//1 创建
+		var xhr=new XMLHttpRequest();
+		//2 监听
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				var result=xhr.responseText;
+				if(result=="success"){
+					location.href="0-index.html";
+				}else{
+					alert("注册失败");
+				}
+			}
+		}
+		//3	打开
+		xhr.open("post","register/reg",true);
+		//post 重设置请求头
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		var formdata="uname="+uname.value+"&upwd="+upwd.value+"&upwd_check="+upwd_check.value+"&phone="+phone.value+"&gender="+gender.value+"&email="+email.value;
+		console.log(formdata);
+		//4 发送
+		xhr.send(formdata);
+	}
+
+
+</script>
+<script src="js/header.js"></script>
+<script src="js/footer.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

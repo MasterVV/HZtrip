@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/common.css"/>
+    <link rel="stylesheet" href="./css/animate.css"/>
+    <link rel="stylesheet" href="./css/index.css"/>
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <title></title>
+    <style>
+        .text-s{font-family:"宋体";}
+        body{
+            background: url("./taset-img/pic_001.jpg");
+            background-attachment:fixed;
+        }
+        /* 楼层滚动 */
+        section .floor{
+            position: fixed;
+            top: 30%;
+            left: 1%;
+            
+        }
+        section .floor li{
+            border-radius: 50%;  
+        }
+        section .floor li:hover{
+            transform: scale(1.3);
+        }
+        /* scale{
+            transform: scale(1.3);
+        } */
+        section .width-w{
+            box-sizing: border-box;
+            width: 1100px;
+        }
+        section .height-h{
+            height: 500px;
+        }
+
+        /* 忆江南定位 */
+        
+        section .bg-transparent img{
+            position: fixed;
+            top:25%;
+            left: 70%;
+            z-index: -10;
+        }
+        section .bg-transparent div{
+            position: fixed;
+            padding:5px 15px 5px 15px;
+            height: 30px;
+            background: rgba(255,255,254,0.8);
+            border-radius: 6px;
+            top: 500px;
+            font-weight:bold;
+            text-align: center;
+            z-index: -10;
+        }
+        
+
+        .rgba-hz01{
+            background: rgba(245,157,24,0.9);
+        }
+        .rgba-hz02{
+            background: rgba(28,176,156,0.9);
+        }
+        .rgba-hz03{
+            background:rgba(205,58,66,0.9);
+        }
+        .rgba-hz04{
+            background:rgba(37,167,195,0.9);
+        }
+        .img-size{
+            width: 150px;
+            height: 130px;
+            background: rgba(0,0,0,0.5);
+            margin-right: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 15px;
+
+        }
+        .img-size:hover{
+            animation:tada 1s;
+        }
+
+
+        /*当季热点*/
+        .hotspot li{
+            width: 200px;
+            background: white;
+            margin-bottom: 50px;
+        }
+        .hotspot p{
+            height: 100px;
+        }
+        .hotspot img{
+            width: 200px;
+            height: 150px;
+        }
+        section div ul a:hover{
+        animation:pulse 1s;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <!-- 引用网页头-->
+    <header></header>
+
+    <!--主体内容-->
+    <section class="mt-5 mb-2">
+        
+        <!-- 左侧楼层滚动 -->
+        <ul class="floor">
+            <li>
+                <img src="./logo/lvhang-_5.png">
+                <!-- <span>111</span> -->
+            </li>
+            
+            <li  >
+                <img src="./logo/lvhang-_2.png" alt="">
+            </li>
+            
+            <li >
+                <img src="./logo/lvhang-_6.png" alt="">
+            </li>
+            
+            <li >
+                <img src="./logo/lvhang-_3.png" alt="">
+            </li>
+            
+            <li >
+                <img src="./logo/lvhang-_8.png" alt="">
+            </li>
+        </ul>
+
+        <!-- 杭州概况-->
+        <div class="width-w m-auto bg-transparent height-h">
+            <table></table>
+            <!-- 忆江南图 -->
+            <img src="./taset-img/indexMainShowMark_03.png" alt="">
+
+            <div class="text-align">
+             <span class="iconfont icon-jingdian"><a href="#" data-toggle="Tab"  class="h5">玉带晴虹</a></span>
+             <span class="iconfont icon-dizhi "><a href="#"   data-toggle="Tab"  class="h5">苏堤</a></span>
+            </div>
+        </div>
+        
+        <div class="width-w m-auto rgba-hz01 section banner" >
+            <table></table>
+            <!-- top-->
+            <div class="h2 mt-5 ml-5 mb-4 ">杭州概况</div>
+            <div class=" row mb-4 pl-5" >
+                <!-- left-->
+                <div class="col-6 mb-5">
+                    <video src="./video/hz.mp4" poster="taset-img/syVideoImg2.jpg" controls loop  width="467px" height="350px"></video>
+                </div>
+                <div class="col-6" id="taster-1">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 杭州民宿-->
+        <div class="width-w m-auto rgba-hz02 section banner">
+            <table></table>
+            <div class="mt-5 ml-5 mb-4">
+                <p class="h1">杭州民宿</p>
+                <span class="h5">不一样的民宿，不一样的杭州</span>
+            </div>
+            <!-- 图-->
+            <ul class="list-unstyled d-flex ml-5 mr-5 justify-content-around">  </ul>
+        </div>
+
+        <!-- 当季热点-->
+        <div class="width-w m-auto rgba-hz03 banner" >
+            <table></table>
+            <!-- 文字-->
+            <div class="mt-5 ml-5 mb-4">
+                <p class="h1">当季热点</p>
+                <span class="h5">绝对不可错过这些体验～～</span>
+            </div>
+            <!-- 图片-->
+            <ul class="hotspot d-flex justify-content-around list-unstyled"> 
+            
+            </ul>
+        </div>
+        <!-- 郊县旅游-->
+        <div class="width-w m-auto rgba-hz04 section banner">
+            <table></table>
+            <div class="mt-5 ml-5 mb-4">
+                <p class="h1">郊县旅游</p>
+            </div>
+            <div class="row">
+                <!-- left 列表-->
+                <div class="col-6 ">
+                    <ul class=" ml-5 h4 nav d-block">
+                        <li class="mb-4"><a  class="text-dark" href="javascript:;"
+                                             data-toggle="tab" data-target="#d1">淳安县</a></li>
+
+                        <li class="mb-4"><a  class="text-dark" href="javascript:;"
+                                             data-toggle="tab" data-target="#d2">建德市</a></li>
+
+                        <li class="mb-4"><a  class="text-dark" href="javascript:;"
+                                             data-toggle="tab" data-target="#d3">临安市</a></li>
+
+                        <li class="mb-4"><a  class="text-dark" href="javascript:;"
+                                             data-toggle="tab" data-target="#d4">桐庐县</a></li>
+                        <li class="mb-4"><a  class="text-dark" href="javascript:;"
+                                             data-toggle="tab" data-target="#d5">富阳市</a></li>
+
+                        <li class="mb-4"><a  class="text-dark" href="javascript:;"
+                                             data-toggle="tab" data-target="#d6">余杭区</a></li>
+
+                        <li class="mb-4"><a  class="text-dark" href="javascript:;"
+                                             data-toggle="tab" data-target="#d7">萧山区</a></li>
+                    </ul>
+                </div>
+                <!-- right 详细信息  .rgba-hz04>div:nth-child(3)-->
+                <div class="col-6 gender" >
+
+                </div>
+             </div>
+        </div>
+
+    </section>
+
+    <!--尾部-->
+    <footer class="container footer-color text-s banner" id="footer">
+     
+    <!-- 导航条-->
+    <div class="nav navbar justify-content-around list-unstyled ">
+        <ul class="list-unstyled text-center">
+            <li><a class="h5" href="#">品味杭州</a></li>
+            <div class="mt-2">
+                <li><a href="#">杭州概况</a></li>
+                <li><a href="#">地方文化</a></li>
+                <li><a href="#">民俗风情</a></li>
+                <li><a href="#">历史名人</a></li>
+                <li><a href="#">史说杭州</a></li>
+            </div>
+        </ul>
+        <!-- -->
+        <ul class="list-unstyled text-center">
+            <li><a class="h5" href="#">体验杭州</a></li>
+            <div class="mt-2">
+                <li>
+                    <a class="h6" href="#">美食</a>
+                    <a class="h6" href="#">住宿</a>
+                </li>
+                <li>
+                    <a class="h6" href="#">交通</a>
+                    <a class="h6" href="#">景点</a>
+                </li>
+                <li>
+                    <a class="h6" href="#">购物</a>
+                    <a class="h6" href="#">娱乐</a>
+                </li>
+            </div>
+        </ul>
+        
+        <ul class="list-unstyled text-center">
+            <li><a class="h5" href="#">旅行攻略</a></li>
+            <div class="mt-2">
+                <li><a class="h6" href="#">专题攻略</a></li>
+                <li><a class="h6" href="#">大佬话杭州</a></li>
+            </div>
+        </ul>
+        
+        <ul class="list-unstyled text-center">
+            <li><a class="h5" href="#">活动盛事</a></li>
+            <div class="mt-2">
+                <li><a class="h6" href="#">当月热点</a></li>
+                <li><a class="h6" href="#">热点回顾</a></li>
+                <li><a class="h6" href="#">当季热点</a></li>
+            </div>
+        </ul>
+        
+        <ul class="list-unstyled text-center">
+            <li><a class="h5" href="#">出游助手</a></li>
+            <div class="mt-2">
+                <li><a class="h6" href="#">手机网</a></li>
+                <li><a class="h6" href="#">在线咨询</a></li>
+                <li><a class="h6" href="#">网上投诉</a></li>
+            </div>
+        </ul>
+        
+        <ul class="list-unstyled text-center">
+            <li><a class="h5" href="#">出游推荐</a></li>
+            <div class="mt-2">
+                <li><a class="h6" href="#">境外游</a></li>
+                <li><a class="h6" href="#">境内游</a></li>
+                <li><a class="h6" href="#">周边游</a></li>
+            </div>
+        </ul>
+    </div>
+
+    <!-- 信息电话-->
+    <div class="row">
+        <div class="col-lg-8">
+            <!--面包屑导航-->
+            <ul class="breadcrumb p-0 m-0 bg-transparent text-s">
+                <li class="breadcrumb-item"><a href="#">网站简介</a></li>
+                <li class="breadcrumb-item"><a href="#">网站地图</a></li>
+                <li class="breadcrumb-item"><a href="#">联系我们</a></li>
+                <li class="breadcrumb-item"><a href="#">负责声明</a></li>
+                <li class="breadcrumb-item"><a href="#">隐私保护</a></li>
+                <li class="breadcrumb-item"><a href="#">客户服务 综合首页</a></li>
+                <!-- 信息-->
+                <p class=" text-s text-white">&copy; 2014 杭州市旅游委员会员 版权所有 浙ICP备05017009号创意设计:嘉润科技 & YYC</p>
+            </ul>
+        </div>
+        <div class="col-lg-4">
+            <!-- 图片-->
+            <div>
+                <ul class="d-flex list-unstyled justify-content-around">
+                    <li class="text-center">
+                        <img src="./img/indexfooterRightMicroPic_08.png" alt=""/>
+                        <p class="text-white">官方微信</p>
+                    </li>
+                    <li class="text-center">
+                        <img src="./img/indexfooterRightAppPic_08.png" alt=""/>
+                        <p class="text-white">杭州旅游APP</p>
+                    </li>
+                    <li class="text-center mt-1">
+                        <img src="./img/footerRightTelMicroBlog_03.png" alt=""/>
+                        <p class="font-weight-bold h2 text-white">96123</p>
+                        <p class="text-white">杭州投诉热线</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/index.js"></script>
+    
+<script>
+
+//控制页面高度
+
+
+    //ajax
+   window.onload=function(){
+       //背景图轮播
+       (function(){
+            var i=1;
+            function change(){
+                if(i<4){
+                    var b=document.getElementsByTagName("body")[0];
+                    var tab=document.querySelectorAll("[data-toggle=Tab]");
+                   
+                    switch(i){
+                        case 1:tab[0].innerHTML="玉带晴虹";tab[1].innerHTML="苏堤";break;
+                        case 2:tab[0].innerHTML="拱宸桥";tab[1].innerHTML="京杭大运河(杭州段)";break;
+                        case 3:tab[0].innerHTML="宝石流霞";tab[1].innerHTML="宝石山";break;
+                        default:break;
+                    }
+                    b.style=`background:url("./taset-img/pic_00${i}.jpg") fixed;
+                    transition: all 2s linear`;
+                    i++;
+                    if(i>3)i=1;
+                }
+            }
+            setInterval(change,6000);
+    })();
+
+        //ajax 请求数据 
+        (function(){
+        var xhr=new XMLHttpRequest();
+        //监听
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4&&xhr.status==200){
+                var result=xhr.responseText;
+                var arr=JSON.parse(result);
+                console.log(arr);
+
+                //杭州概况 req
+               document.querySelector("#taster-1").innerHTML=`
+                ${arr[0].tduce}
+                <!-- 图片-->
+            <div>
+                <ul class="list-unstyled d-flex">
+                <li class="img-size">
+                <img class="mt-3" src="./taset-img/icon1.png" alt=""/>
+                <p><a  class="text-white h5 " href="#">历史荣誉</a></p>
+                </li>
+                <li class="img-size">
+                <img class="mt-3" src="./taset-img/icon2.png" alt=""/>
+                <p><a  class="text-white h5" href="#">杭城小记</a></p>
+                </li>
+                <li class="img-size">
+                <img class="mt-3" src="./taset-img/icon4.png" alt=""/>
+                <p><a  class="text-white h5" href="#">所见所闻</a></p>
+                </li>
+                </ul>
+             </div>
+            `;
+
+                //杭州名宿
+               var hzms=document.getElementsByClassName("rgba-hz02")[0].children[2];
+                var html="";
+                for( var key of arr.slice(1,4)){
+                   // console.log(key);
+                html+=`
+                <li class="bg-white text-center mb-5 ">
+                    <img src=${key.turl} alt=""/>
+                    <a href="" class="d-block text-dark h5">${key.tname}</a>
+                    <p>${key.tduce}</p>
+                    <a href="#" class="btn btn-info mb-4">立即预定</a>
+                </li>`;
+            }
+               hzms.innerHTML=html;
+
+
+               // 当季热点
+                html="";
+               var hzhot=document.getElementsByClassName("rgba-hz03")[0].children[2];
+               for(var key of arr.slice(4,8)){
+                   html+=`
+                   <li>
+                    <img src=${key.turl} alt=""/>
+                        <a class="d-block text-center mt-2 mb-2" href="">${key.tname}</a>
+                        <hr class="m-0"/>
+                        <hr class="m-0"/>
+                        <p class="ml-3 mr-3">${key.tduce}</p>
+                        <a href="#" class="btn btn-danger float-right mr-1 mb-1">更多+</a>
+                </li>`;
+                hzhot.innerHTML=html; 
+               }
+
+               //郊县旅游
+               html="";
+               var cityTour=document.querySelector(".rgba-hz04>div:nth-child(3)>div:nth-child(2)");
+              // console.log(cityTour);
+              //console.log(arr[8].tduce);
+              for(var key of arr.slice(8,15)){
+                 //console.log(key.teduce);
+                  html+=key.tduce;
+              }
+              cityTour.innerHTML=html;
+              //console.log(html);
+            }
+        }
+        //打开
+        xhr.open("get","/taster/intr",true);
+        //post 修改头
+        xhr.send(null);
+    })();
+    
+   
+    //  教区旅游 景点切换
+    setTimeout(changer,200);
+    function changer(){
+    var gender=document.querySelectorAll(".gender>div");
+    console.log(1);
+    console.log(gender);
+    for( var gen of gender){
+        
+        if(gen!=gender[0]){gen.style.display="none";}
+    }
+    var tabs=document.querySelectorAll("[data-toggle=tab]");
+    for(var tab of tabs){
+        tab.onclick=function(){
+            var tab=this;
+            var divs=document.querySelectorAll(".gender>div");
+            //console.log(divs);
+            for( div of divs){
+                //console.log(div);
+                div.style.display="none";
+            }
+            var id=tab.getAttribute("data-target");
+            document.querySelector(id).style.display="block";
+        }
+     }
+   }
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>
